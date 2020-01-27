@@ -1,0 +1,43 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "dbgbuild hash",
+            "type": "shell",
+            "command": "gcc -g ./hash/hash.c ./hash/hash_test.c  ./dlist/dlist.c -o hash.out",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "vlg hash",
+            "type": "shell",
+            "command": "valgrind -v /home/ishay/ishay-peleg/new_c/hash/hash.out",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "dbgbuild dlist",
+            "type": "shell",
+            "command": "gcc -g ./dlist/dlist.c ./dlist/dlist_test.c -o dlist.out",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "vlg dlist",
+            "type": "shell",
+            "command": "valgrind -v /home/ishay/ishay-peleg/new_c/dlist.out",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

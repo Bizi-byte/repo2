@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/ishay/ishay-peleg/RDZaddress/GetAddresses/GetAddresses.csproj": {}
+  },
+  "projects": {
+    "/home/ishay/ishay-peleg/RDZaddress/GetAddresses/GetAddresses.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/ishay/ishay-peleg/RDZaddress/GetAddresses/GetAddresses.csproj",
+        "projectName": "GetAddresses",
+        "projectPath": "/home/ishay/ishay-peleg/RDZaddress/GetAddresses/GetAddresses.csproj",
+        "packagesPath": "/home/ishay/.nuget/packages/",
+        "outputPath": "/home/ishay/ishay-peleg/RDZaddress/GetAddresses/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/ishay/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Google.Apis.Sheets.v4": {
+              "target": "Package",
+              "version": "[1.43.0.1839, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+  <members>
+    <member name="xml_test.A">
+      <summary>
+        test class includes constuctor and print methods
+      </summary>
+      <remarks>
+        ctor creates class, print prints stored value
+      </remarks>
+    </member>
+    <member name="xml_test.A.Num">
+      <summary>
+        property to store number
+      </summary>
+    </member>
+    <member name="M:xml_test.A.ctor">
+      <summary>
+        ctor
+      </summary>
+      <param name="num" type="int"></param>
+    </member>
+    <member name="M:xml_test.A.Print">
+      <summary>
+        prints the stored number
+      </summary>
+      <returns>
+        the stored number
+      </returns>
+    </member>
+  </members>
+</doc>

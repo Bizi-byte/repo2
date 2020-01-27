@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Test Dlist",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/home/ishay/ishay-peleg/new_c/dlist.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/home/ishay/ishay-peleg/new_c/dlist/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "preLaunchTask": "dbgbuild dlist",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Test Hash",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/home/ishay/ishay-peleg/new_c/hash.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/home/ishay/ishay-peleg/new_c/hash",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "preLaunchTask": "dbgbuild hash",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

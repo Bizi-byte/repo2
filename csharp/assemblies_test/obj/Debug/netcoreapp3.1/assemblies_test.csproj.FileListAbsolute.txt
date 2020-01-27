@@ -1,0 +1,11 @@
+/home/ishay/ishay-peleg/csharp/assemblies_test/bin/Debug/netcoreapp3.1/assemblies_test
+/home/ishay/ishay-peleg/csharp/assemblies_test/bin/Debug/netcoreapp3.1/assemblies_test.deps.json
+/home/ishay/ishay-peleg/csharp/assemblies_test/bin/Debug/netcoreapp3.1/assemblies_test.runtimeconfig.json
+/home/ishay/ishay-peleg/csharp/assemblies_test/bin/Debug/netcoreapp3.1/assemblies_test.runtimeconfig.dev.json
+/home/ishay/ishay-peleg/csharp/assemblies_test/bin/Debug/netcoreapp3.1/assemblies_test.dll
+/home/ishay/ishay-peleg/csharp/assemblies_test/bin/Debug/netcoreapp3.1/assemblies_test.pdb
+/home/ishay/ishay-peleg/csharp/assemblies_test/obj/Debug/netcoreapp3.1/assemblies_test.csprojAssemblyReference.cache
+/home/ishay/ishay-peleg/csharp/assemblies_test/obj/Debug/netcoreapp3.1/assemblies_test.AssemblyInfoInputs.cache
+/home/ishay/ishay-peleg/csharp/assemblies_test/obj/Debug/netcoreapp3.1/assemblies_test.AssemblyInfo.cs
+/home/ishay/ishay-peleg/csharp/assemblies_test/obj/Debug/netcoreapp3.1/assemblies_test.dll
+/home/ishay/ishay-peleg/csharp/assemblies_test/obj/Debug/netcoreapp3.1/assemblies_test.pdb

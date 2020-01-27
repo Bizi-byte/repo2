@@ -1,0 +1,11 @@
+/home/ishay/ishay-peleg/CoreTest/bin/Debug/netcoreapp3.0/CoreTest
+/home/ishay/ishay-peleg/CoreTest/bin/Debug/netcoreapp3.0/CoreTest.deps.json
+/home/ishay/ishay-peleg/CoreTest/bin/Debug/netcoreapp3.0/CoreTest.runtimeconfig.json
+/home/ishay/ishay-peleg/CoreTest/bin/Debug/netcoreapp3.0/CoreTest.runtimeconfig.dev.json
+/home/ishay/ishay-peleg/CoreTest/bin/Debug/netcoreapp3.0/CoreTest.dll
+/home/ishay/ishay-peleg/CoreTest/bin/Debug/netcoreapp3.0/CoreTest.pdb
+/home/ishay/ishay-peleg/CoreTest/obj/Debug/netcoreapp3.0/CoreTest.csprojAssemblyReference.cache
+/home/ishay/ishay-peleg/CoreTest/obj/Debug/netcoreapp3.0/CoreTest.AssemblyInfoInputs.cache
+/home/ishay/ishay-peleg/CoreTest/obj/Debug/netcoreapp3.0/CoreTest.AssemblyInfo.cs
+/home/ishay/ishay-peleg/CoreTest/obj/Debug/netcoreapp3.0/CoreTest.dll
+/home/ishay/ishay-peleg/CoreTest/obj/Debug/netcoreapp3.0/CoreTest.pdb

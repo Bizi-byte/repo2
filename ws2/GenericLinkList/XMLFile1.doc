@@ -1,0 +1,29 @@
+﻿<docs>
+  <members name ="LinkedList">
+    <Node>
+      <summary>
+      class to create nodes for the linked list
+      </summary>
+      <typeparam name="T"></typeparam>
+    </Node>
+
+    <LinkList>
+      <summary>
+      creates a new empty linked list-test
+      </summary>
+    </LinkList>
+
+    <Push>
+      <summary>
+      adds the given data to list
+      </summary>
+      <param name="node_data"></param>
+      <remarks> data argument is of type T </remarks>
+      <returns>
+      boolean value represents success to add data to list
+      </returns>
+    </Push>
+
+
+  </members>
+</docs>

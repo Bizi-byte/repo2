@@ -1,0 +1,7 @@
+/home/ishay/ishay-peleg/obj/Debug/netcoreapp3.0/ishay-peleg.csprojAssemblyReference.cache
+/home/ishay/ishay-peleg/obj/Debug/netcoreapp3.0/ishay_peleg.ExpenseIt.ExpenseIt.Properties.Resources.resources
+/home/ishay/ishay-peleg/obj/Debug/netcoreapp3.0/WinForm1.Form1.resources
+/home/ishay/ishay-peleg/obj/Debug/netcoreapp3.0/ishay_peleg.WinForm1.WinForm1.Properties.Resources.resources
+/home/ishay/ishay-peleg/obj/Debug/netcoreapp3.0/ishay-peleg.csproj.GenerateResource.cache
+/home/ishay/ishay-peleg/obj/Debug/netcoreapp3.0/ishay-peleg.AssemblyInfoInputs.cache
+/home/ishay/ishay-peleg/obj/Debug/netcoreapp3.0/ishay-peleg.AssemblyInfo.cs

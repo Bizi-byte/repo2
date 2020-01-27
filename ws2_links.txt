@@ -1,0 +1,4 @@
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/index
+
+list of built in types:
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/built-in-types-table
