@@ -341,3 +341,5 @@ healthchecksdb
 
 #ignore configuration file for chat room
 *conf.txt
+
+*.dll
