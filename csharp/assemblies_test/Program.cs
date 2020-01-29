@@ -61,6 +61,26 @@ namespace assemblies_test
 
             Base b = new Derived();
             Console.WriteLine(b.GetType());
+
+            var Assem = Assembly.LoadFrom("/home/ishay/repo2/csharp/HiddenAssembly/bin/Debug/netstandard2.0/HiddenAssembly.dll");
+
+            var Assemtypes = Assem.GetTypes();
+            foreach (var type in Assemtypes)
+            {
+                Console.WriteLine(type);
+            }
+
+            var fullAssemtypes = Assem.DefinedTypes;
+            foreach (var type in fullAssemtypes)
+            {
+                Console.WriteLine(type);
+                Console.WriteLine("base is:{0}",
+                                  type.BaseType);
+                foreach (var method in type.DeclaredMethods)
+                {
+                    Console.WriteLine(value: method.Name);
+                }
+            }
         }
     }
 }
