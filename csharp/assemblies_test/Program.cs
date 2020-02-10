@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Net;
 
 
 namespace assemblies_test
@@ -61,8 +62,14 @@ namespace assemblies_test
 
             Base b = new Derived();
             Console.WriteLine(b.GetType());
+            using(var client = new WebClient())
+            {
+                client.DownloadFile(@"https://github.com/Bizi-byte/repo2/blob/master/csharp/HiddenAssembly/bin/Debug/netstandard2.0/HiddenAssembly.dll", "HiddenAssembly.dll");
+            }
 
-            var Assem = Assembly.LoadFrom("/home/ishay/repo2/csharp/HiddenAssembly/bin/Debug/netstandard2.0/HiddenAssembly.dll");
+            var Assem = Assembly.LoadFrom(@"HiddenAssembly.dll");
+            //var Assem = Assembly.LoadFrom("/home/ishay/repo2/csharp/HiddenAssembly/bin/Debug/netstandard2.0/HiddenAssembly.dll");
+            //var Assem = Assembly.LoadFrom("https://github.com/Bizi-byte/repo2/blob/master/csharp/HiddenAssembly/bin/Debug/netstandard2.0/HiddenAssembly.dll");
 
             var Assemtypes = Assem.GetTypes();
             foreach (var type in Assemtypes)
