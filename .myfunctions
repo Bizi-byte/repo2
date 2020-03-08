@@ -1,0 +1,38 @@
+#
+#gcc compilation aliases:c89, c99, debug mode, release mode
+alias gd='gcc -ansi -pedantic-errors -Wall -Wextra -g -Og'
+alias gc='gcc -ansi -pedantic-errors -Wall -Wextra -DNDEBUG -O3'
+alias gd9='gcc -std=c99 -pedantic-errors -Wall -Wextra -g -Og'
+alias gc9='gcc -std=c99 -pedantic-errors -Wall -Wextra -DNDEBUG -O3'
+#
+
+#
+#clang compilation aliases:c89, c99, debug mode, release mode
+alias clgd='clang -ansi -pedantic-errors -Wall -Wextra -g -Og'
+alias clgc='clang -ansi -pedantic-errors -Wall -Wextra -DNDEBUG -O3'
+alias clgd9='clang -std=c99 -pedantic-errors -Wall -Wextra -g -Og'
+alias clgc9='clang -std=c99 -pedantic-errors -Wall -Wextra -DNDEBUG -O3'
+
+
+# Valgrind alias
+alias vlg='valgrind --leak-check=yes --track-origins=yes'
+#
+#git alias
+alias gpsh="git push -u origin master"
+alias gpll="git pull origin master"
+alias gcm="git commit -m"
+
+#change working directory alias
+alias cdd="cd ~/Downloads" 
+
+#usage example: get hrd11 ws8
+function find_rd() { find $1 -name "$2*" -type f; }
+
+function get() {    code -n  `find_rd ~/InfinityLabs/$1/ $2`; }
+
+function pull_lab()
+{
+    ~/pull_lab $1;
+}
+
+
