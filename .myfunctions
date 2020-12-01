@@ -6,6 +6,12 @@ alias gd9='gcc -std=c99 -pedantic-errors -Wall -Wextra -g -Og'
 alias gc9='gcc -std=c99 -pedantic-errors -Wall -Wextra -DNDEBUG -O3'
 #
 
+#cpp compilation aliases
+alias gdpp='g++ -ansi -pedantic-errors -Wall -Wextra -g -Og'
+alias gcpp='g++ -ansi -pedantic-errors -Wall -Wextra -DNDEBUG -O3'
+
+alias gdpp11='g++ -std=c++11 -pedantic-errors -Wall -Wextra -g -Og'
+alias gcpp11='g++ -std=c++11 -pedantic-errors -Wall -Wextra -DNDEBUG -O3'
 #
 #clang compilation aliases:c89, c99, debug mode, release mode
 alias clgd='clang -ansi -pedantic-errors -Wall -Wextra -g -Og'
@@ -28,7 +34,10 @@ alias cdd="cd ~/Downloads"
 #usage example: get hrd11 ws8
 function find_rd() { find $1 -name "$2*" -type f; }
 
-function get() {    code -n  `find_rd ~/InfinityLabs/$1/ $2`; }
+function get() {    geany -n  `find_rd ~/InfinityLabs/$1/ $2`; }
+
+function find_rd_dir() { find $1 -name "$2*" -type d; }
+function getVSCode() {    code -n  `find_rd_dir ~/InfinityLabs/$1/ $2`; }
 
 function pull_lab()
 {
