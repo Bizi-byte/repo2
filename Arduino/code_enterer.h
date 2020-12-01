@@ -17,14 +17,17 @@ typedef enum states
   END,
 }enter_state;
 
-class code_enter
+class code_enterer
 {
 public:
-  explicit code_enter(int pin_num, const char *user_code);
-  ~code_enter() = default;
-  code_enter(code_enter& other) = delete;
+  explicit code_enterer(int pin_num, const char *user_code);
+  ~code_enterer() = default;
+  code_enterer(code_enterer& other) = delete;
 
-  void Run();
+  bool Check();
+  int Run();
+  int Routine();
+
   void PrintStatus();
   void PrintEntered();
 
@@ -39,6 +42,7 @@ private:
   void Reset();
   bool EnteredIsSame() const;
 
+  char curr_key = 0;
   unsigned char key_idx = 0;
   char code[code_len] = {-1};
   char entered[code_len] = {-1};

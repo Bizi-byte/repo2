@@ -3,7 +3,7 @@
 #include "code_enterer.h"
 
 
-code_enter::code_enter(int pin_num, const char* user_code) 
+code_enterer::code_enterer(int pin_num, const char* user_code) 
   : keypad(Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS)),
     led_pin(pin_num)
 {
@@ -13,7 +13,7 @@ code_enter::code_enter(int pin_num, const char* user_code)
   // Serial.begin(9600);  
 }
 
-void code_enter::PrintStatus()
+void code_enterer::PrintStatus()
 {
   Serial.println();
   Serial.println(state);
@@ -23,7 +23,7 @@ void code_enter::PrintStatus()
   Serial.println(key_idx);
   PrintEntered();
 }
-void code_enter::PrintEntered()
+void code_enterer::PrintEntered()
 {
   for(int i = 0; i < code_len; ++i)
   {
@@ -31,86 +31,94 @@ void code_enter::PrintEntered()
   }
   Serial.println();
 }
-void code_enter::Run()
+bool code_enterer::Check()
 {
-  if(state != END)
-  {
-    char key = keypad.getKey();
-    if(key)
+  curr_key = keypad.getKey();
+  return (curr_key);
+}
+int code_enterer::Routine()
+{
+  if (state == ENTERING)
     {
-      if(state == START)
-      {
-        state = ENTERING;
-        LedOn();
-      }
-      entered[key_idx] = key;
-      ++key_idx;
-      PrintStatus();
-
-      if(key_idx >= code_len)
-      {
-        if(EnteredIsSame())
-        {
-          LedOn();
-          state = END;
-        }
-        else
-        {
-          Reset();
-        } 
-      }
-    }
-    if (state == ENTERING)
-    {
-      --code_counter;
       --led_counter;
       if(0 == led_counter)
       {
         SwitchLed();
         LedCounterReset();
       }
+      --code_counter;
+      if(code_counter == 0)
+      {
+        Reset();
+      }
     }
-    if(code_counter == 0)
-    {
-      Reset();
-    }
-  }
-  else
+}
+int code_enterer::Run()
+{
+  switch (state)
   {
-    char key = keypad.getKey();
-    if(key == '#')
+  case END:
+    if(curr_key == '#')
     {
       Reset();
     }
+    break;
+
+  case START:
+    state = ENTERING;
+    LedOn();
+
+  case ENTERING:
+    entered[key_idx] = curr_key;
+    ++key_idx;
+    PrintStatus();
+
+    if(key_idx >= code_len)
+    {
+      if(EnteredIsSame())
+      {
+        LedOn();
+        state = END;
+      }
+      else
+      {
+        Reset();
+      } 
+    }
+    break;
+
+  default:
+    break;
   }
 }
-void code_enter::LedOn()
+
+void code_enterer::LedOn()
 {
   digitalWrite(led_pin, HIGH);
   led_on = true;
 
 } 
-void code_enter::LedOff()
+void code_enterer::LedOff()
 {
   digitalWrite(led_pin, LOW);
   led_on = false;
 
 }
-void code_enter::SwitchLed() 
+void code_enterer::SwitchLed() 
 { 
   led_on ? LedOff() : LedOn();
 }
 
-void code_enter::CodeCounterReset()
+void code_enterer::CodeCounterReset()
 {
   code_counter = enter_time;
 }
-void code_enter::LedCounterReset()
+void code_enterer::LedCounterReset()
 {
   led_counter = blink_duration;
 }
 
-void code_enter::Reset() 
+void code_enterer::Reset() 
 { 
   LedOff();
   CodeCounterReset();
@@ -118,7 +126,7 @@ void code_enter::Reset()
   state = START;
   key_idx = 0;
 }
-bool code_enter::EnteredIsSame() const
+bool code_enterer::EnteredIsSame() const
 {
   size_t i = 0;
   for (i = 0; i < code_len; ++i)
@@ -131,7 +139,7 @@ bool code_enter::EnteredIsSame() const
   return true;
 };
 
-  void code_enter::InitCode(const char user_code[code_len])
-  {
-    memcpy(code, user_code, sizeof(char) * code_len);
-  }
+void code_enterer::InitCode(const char user_code[code_len])
+{
+  memcpy(code, user_code, sizeof(char) * code_len);
+}
