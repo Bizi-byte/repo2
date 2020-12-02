@@ -9,7 +9,10 @@
 
 #include <Keypad.h>
 #include "Arduino.h"
+#include "led.h"
 
+namespace IP
+{
 typedef enum states
 {
   START,
@@ -20,7 +23,8 @@ typedef enum states
 class code_enterer
 {
 public:
-  explicit code_enterer(int pin_num, const char *user_code);
+  explicit code_enterer(int pin_num, const char *user_code,
+                        unsigned int enter_time,  unsigned int blink_duration);
   ~code_enterer() = default;
   code_enterer(code_enterer& other) = delete;
 
@@ -33,10 +37,6 @@ public:
 
   static const unsigned char code_len = 4;
 private:
-
-  void LedOn(); 
-  void LedOff();
-  void SwitchLed();
   void CodeCounterReset();
   void LedCounterReset();
   void Reset();
@@ -47,15 +47,15 @@ private:
   char code[code_len] = {-1};
   char entered[code_len] = {-1};
 
-  static const unsigned int enter_time = 10000;
-  static const unsigned int blink_duration = 250;
+  const unsigned int m_enter_time;
+  const unsigned int m_blink_duration;
 
-  unsigned int code_counter = enter_time;
-  unsigned int led_counter = blink_duration;
+  unsigned int code_counter;
+  unsigned int led_counter;
 
   void InitCode(const char user_code[code_len]);
 
-  bool led_on = false;
+  IP::Led m_led;
   enter_state state = START;
   static const byte ROWS = 4; //four rows
   static const byte COLS = 4; //three columns
@@ -68,7 +68,7 @@ private:
   byte colPins[ROWS] = {5, 4, 3, 2}; //connect to the row pinouts of the keypad
   byte rowPins[COLS] = {9, 8, 7, 6}; //connect to the column pinouts of the keypad
   Keypad keypad;
-  int led_pin;
 };
+} // namespace IP
 
 #endif // __CODE_ENTERER_H__

@@ -2,22 +2,22 @@
 #include <string.h>
 #include "code_enterer.h"
 
-
-code_enterer::code_enterer(int pin_num, const char* user_code) 
-  : keypad(Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS)),
-    led_pin(pin_num)
+namespace IP
 {
-  pinMode(led_pin, OUTPUT);
-  digitalWrite(led_pin, LOW);
+code_enterer::code_enterer(int pin_num, const char* user_code,
+                          unsigned int enter_time,  unsigned int blink_duration) 
+  : keypad(Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS)),
+    m_led(pin_num), m_enter_time(enter_time), m_blink_duration(blink_duration),
+    code_counter(enter_time), led_counter(blink_duration)
+{ 
   InitCode(user_code);
-  // Serial.begin(9600);  
 }
 
 void code_enterer::PrintStatus()
 {
   Serial.println();
   Serial.println(state);
-  Serial.println(led_on);
+  // Serial.println(led_on);
   Serial.println(code_counter);
   Serial.println(led_counter);
   Serial.println(key_idx);
@@ -43,7 +43,7 @@ int code_enterer::Routine()
       --led_counter;
       if(0 == led_counter)
       {
-        SwitchLed();
+        m_led.Switch();
         LedCounterReset();
       }
       --code_counter;
@@ -66,8 +66,7 @@ int code_enterer::Run()
 
   case START:
     state = ENTERING;
-    LedOn();
-
+    m_led.On();
   case ENTERING:
     entered[key_idx] = curr_key;
     ++key_idx;
@@ -77,7 +76,7 @@ int code_enterer::Run()
     {
       if(EnteredIsSame())
       {
-        LedOn();
+        m_led.On();
         state = END;
       }
       else
@@ -92,35 +91,18 @@ int code_enterer::Run()
   }
 }
 
-void code_enterer::LedOn()
-{
-  digitalWrite(led_pin, HIGH);
-  led_on = true;
-
-} 
-void code_enterer::LedOff()
-{
-  digitalWrite(led_pin, LOW);
-  led_on = false;
-
-}
-void code_enterer::SwitchLed() 
-{ 
-  led_on ? LedOff() : LedOn();
-}
-
 void code_enterer::CodeCounterReset()
 {
-  code_counter = enter_time;
+  code_counter = m_enter_time;
 }
 void code_enterer::LedCounterReset()
 {
-  led_counter = blink_duration;
+  led_counter = m_blink_duration;
 }
 
 void code_enterer::Reset() 
 { 
-  LedOff();
+  m_led.Off();
   CodeCounterReset();
   LedCounterReset();
   state = START;
@@ -128,18 +110,11 @@ void code_enterer::Reset()
 }
 bool code_enterer::EnteredIsSame() const
 {
-  size_t i = 0;
-  for (i = 0; i < code_len; ++i)
-  {
-    if(code[i] != entered[i])
-    {
-      return false;
-    }
-  }
-  return true;
+  return (!memcmp(code, entered, code_len * sizeof(char)));
 };
 
 void code_enterer::InitCode(const char user_code[code_len])
 {
   memcpy(code, user_code, sizeof(char) * code_len);
 }
+} // namespace IP
